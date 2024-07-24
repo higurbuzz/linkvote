@@ -2,32 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* LINK CARD */
+
+.link-item {
+  @apply flex border border-transparent rounded relative items-center p-2 my-4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.link-item:hover {
+  @apply bg-gray-100 border border-gray-200 rounded;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.point-wrapper {
+  @apply flex flex-col justify-center text-center border border-gray-400 rounded bg-gray-100 w-20 h-20;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.point-wrapper h3 {
+  @apply text-3xl font-bold;
+}
+
+.point-wrapper span {
+  @apply text-xs;
+}
+
+.content-wrapper {
+  @apply flex flex-col flex-1 justify-between h-20 ml-4;
+}
+
+.content-wrapper h3 {
+  @apply flex text-lg font-semibold;
+}
+
+.content-wrapper a {
+  @apply text-sm text-gray-400;
+}
+
+.voter-wrapper {
+  @apply flex flex-grow items-end text-sm;
+}
+
+.voter-up {
+  @apply flex-1 text-left mr-2 text-gray-500;
+}
+
+.voter-down {
+  @apply flex-1 text-left mr-2 text-gray-500;
+}
+
+/* SUBMIT A LINK */
+
+.link-submit-wrapper {
+  @apply flex p-2 my-4 bg-gray-100 border border-gray-200 rounded;
+}
+
+.plus-wrapper {
+  @apply flex flex-col justify-center text-center border border-gray-400 rounded bg-gray-100 w-20 h-20;
+}
+
+.plus-wrapper span {
+  @apply text-6xl font-bold;
+}
+
+.submit-text-wrapper {
+  @apply flex flex-1 flex-col justify-center;
+}
+
+.submit-text-wrapper span {
+  @apply text-center text-3xl font-medium;
+}
+
+/* ORDER BY */
+
+.order-select-wrapper {
+  @apply w-1/2 m-2;
+}
+
+.order-select {
+  @apply border rounded p-2 bg-gray-200;
 }
