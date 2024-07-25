@@ -77,5 +77,31 @@
 }
 
 .order-select {
-  @apply border rounded p-2 bg-gray-200;
+  @apply border border-gray-300 rounded p-2 bg-gray-100;
+}
+
+/* ADD LINK FORM */
+.add-form-wrapper {
+  @apply flex flex-col gap-4 my-8;
+}
+
+.add-form-wrapper h2 {
+  @apply text-2xl font-bold mt-4;
+}
+
+.add-form {
+  @apply flex flex-col;
+}
+
+.add-form label {
+  @apply ml-2 mt-4 text-sm;
+}
+
+.add-form input {
+  @apply border border-gray-400 rounded p-2
+  placeholder:text-gray-300;
+}
+
+.add-form button {
+  @apply self-end mt-6 text-xl font-medium bg-black text-white px-10 py-2 rounded-full w-min;
 }

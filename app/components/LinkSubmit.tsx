@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const LinkSubmit = () => {
   return (
-    <Link href="/" className="link-submit-wrapper">
+    <Link href="/add" className="link-submit-wrapper">
       <div className="plus-wrapper">
-        <span>+</span>
+        <span className="pb-1">+</span>
       </div>
       <div className="submit-text-wrapper">
         <span>SUBMIT A LINK</span>

@@ -4,7 +4,7 @@ import OrderBySelector from "./components/OrderBySelector";
 
 export default function Home() {
   return (
-    <main className="w-[400px] mx-auto">
+    <main>
       <LinkSubmit />
       <hr className="h-1 my-4 bg-gray-100 border-0" />
       <OrderBySelector />
