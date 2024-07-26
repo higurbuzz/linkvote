@@ -48,6 +48,12 @@
   @apply flex-1 text-left mr-2 text-gray-500;
 }
 
+.delete-button {
+  @apply absolute hidden
+  w-6 h-6 top-[-12px] right-[-12px]
+  rounded-full shadow-md;
+}
+
 /* SUBMIT A LINK */
 
 .link-submit-wrapper {

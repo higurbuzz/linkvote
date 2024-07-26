@@ -1,38 +1,31 @@
 "use client";
 
 import LinkCard from "./LinkCard";
+import { Link as LinkType } from "../types";
 
-interface Link {
-  id: number;
-  points: number;
-  name: string;
-  url: string;
+interface LinkListProps {
+  links: LinkType[];
+  onVote: (id: string, type: "up" | "down") => void;
+  onDelete: (id: string) => void;
 }
 
-const LinkList = () => {
-  const links: Link[] = [
-    {
-      id: 0,
-      points: 6,
-      name: "Hacker News",
-      url: "https://news.ycombinator.com/",
-    },
-    { id: 1, points: 4, name: "Product Hunt", url: "https://producthunt.com/" },
-    { id: 2, points: 4, name: "REDDIT", url: "https://www.reddit.com/" },
-  ];
-
-  return (
+const LinkList: React.FC<LinkListProps> = ({ links, onVote, onDelete }) => {
+  return links.length ? (
     <div>
       <ul>
-        {links.map((link, index) => (
+        {links.map((link) => (
           <LinkCard
             key={link.id}
-            name={link.name}
-            points={link.points}
-            url={link.url}
+            link={link}
+            onVote={onVote}
+            onDelete={onDelete}
           />
         ))}
       </ul>
+    </div>
+  ) : (
+    <div className="text-center p-4 font-light text-xl">
+      There is no link added.
     </div>
   );
 };
