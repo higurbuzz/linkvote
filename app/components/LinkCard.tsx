@@ -1,6 +1,7 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Link as LinkType } from "../types";
+import ConfirmationModal from "./RemoveConfirmationModal";
 
 interface LinkCardProps {
   link: LinkType;
@@ -9,6 +10,20 @@ interface LinkCardProps {
 }
 
 const LinkCard: React.FC<LinkCardProps> = ({ link, onVote, onDelete }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleDelete = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    setIsModalOpen(false);
+    onDelete(link.id);
+  };
+
+  const handleCancelDelete = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="link-item group">
       <div className="point-wrapper">
@@ -30,7 +45,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ link, onVote, onDelete }) => {
           </button>
         </div>
         <button
-          onClick={() => onDelete(link.id)}
+          onClick={handleDelete}
           className="delete-button group-hover:block"
         >
           <svg
@@ -54,6 +69,14 @@ const LinkCard: React.FC<LinkCardProps> = ({ link, onVote, onDelete }) => {
           </svg>
         </button>
       </div>
+
+      {isModalOpen && (
+        <ConfirmationModal
+          message={`${link.name.toUpperCase()}`}
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancelDelete}
+        />
+      )}
     </div>
   );
 };
